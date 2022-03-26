@@ -50,14 +50,14 @@ async def register_new_shield(message, content, shields):
         tosend = 'Shield length formatted incorrectly, try again. ' + example_text
         await message.channel.send(tosend)
         correctly_formatted = False
-        return
+        return shields
 
     # check that time is between bounds
     if shield_length < 0 or shield_length > 72:
         tosend = 'Shield length must be between 0 and 72 hours. ' + example_text
         await message.channel.send(tosend)
         correctly_formatted = False
-        return
+        return shields
 
     if len(content) > 2 and not admin_mode:
         description = " ".join(content[2:])
